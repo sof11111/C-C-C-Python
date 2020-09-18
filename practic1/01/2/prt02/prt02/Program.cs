@@ -28,10 +28,6 @@ namespace prt02
     {
       Person p = new Person("Tony", "Allen", 32, Person.Genders.Male);
       Console.WriteLine(p.ToString());
-
-      string s = "123";
-        int a = 5;
-        Console.WriteLine(s+a.ToString());
     }
   }
 }
