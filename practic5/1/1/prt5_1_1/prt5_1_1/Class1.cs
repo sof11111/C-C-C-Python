@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace prt5_1_1
+namespace Serialize_People
 {
-
-  
+  [Serializable]
   class Person
   {
     public string name;
