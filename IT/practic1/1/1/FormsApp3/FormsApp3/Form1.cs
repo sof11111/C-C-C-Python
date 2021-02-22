@@ -27,11 +27,11 @@ namespace FormsApp3
     private void Form1_Load(object sender, EventArgs e)
     {
       button1.Click += label1_Click;
-      button1.Click += label1_Click;
-      button1.Click += label1_Click;
-      button1.Click += label1_Click;
+      button2.Click += label1_Click;
+      button3.Click += label1_Click;
+      button4.Click += label1_Click;
     }
-
+    
     void label1_Click(object sender, EventArgs e)
     {
       Random rnd = new Random(DateTime.Now.Millisecond);
