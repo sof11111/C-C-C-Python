@@ -52,53 +52,22 @@ namespace Forms3
             
       double x = double.Parse(textBox1.Text);
       double y = double.Parse(textBox2.Text);
-      double z = double.Parse(textBox3.Text);
+      double Fx = double.Parse(textBox3.Text);
 
       
       textBox4.Text += Environment.NewLine + "При x = " + x.ToString();
       textBox4.Text += Environment.NewLine + "При y = " + y.ToString();
-      textBox4.Text += Environment.NewLine + "При z = " + z.ToString();
+      textBox4.Text += Environment.NewLine + "При z = " + Fx.ToString();
 
       // Вычисляем арифметическое выражение
 
-      //double y = Math.Pow(x, 2);
+      
       if (x > 10) y = 1;
-      if ((x >= 0) && (x <= 10)) y = 2 * z - 1;
-      if (x < 0) y = Math.Abs(1 - (3*z));
-
-      //double a = 1, b = 2, c = 3;
-      
-      //double D = Math.Pow(b, 2) - 4 * a * c;
-      //int roots = -1;
-
-      /*if (Math.Abs(D) < 1e-10)
-      {
-        roots = 1;
-      }
-      else
-      {
-        if (D > 0) roots = 2;
-        if (D < 0) roots = 0;
-      }*/
-      
-      /*switch (roots)
-      {
-        case 1:
-          Console.WriteLine("case");
-          break;
-        case 2:
-          Console.WriteLine("case");
-          //x = -b / (2 * a);
-          Console.WriteLine(x);
-          break;
-        default:
-          Console.WriteLine("Default case");
-          break;
-      }*/
-
+      if ((x >= 0) && (x <= 10)) y = 2 * Fx - 1;
+      if (x < 0) y = Math.Abs(1 - (3*Fx));
 
       //Выводимрезультатвокно
-      textBox4.Text += Environment.NewLine + "Результат y = " + y.ToString();
+      textBox4.Text += Environment.NewLine + "Результат Fx = " + Fx.ToString();
 
     }
     
@@ -124,7 +93,7 @@ namespace Forms3
         z = Math.Pow(x, 2);
       }
       textBox4.Text += Environment.NewLine + "Результат y = " + y.ToString();
-      //z = Math.Pow(x, 2);
+      
     }
 
 
