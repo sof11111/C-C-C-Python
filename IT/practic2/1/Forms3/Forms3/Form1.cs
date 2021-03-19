@@ -21,9 +21,9 @@ namespace Forms3
     //ввод x, y, z
     private void Form1_Load(object sender, EventArgs e)
     {
-      textBox1.Text = "1";
-      textBox2.Text = "2";
-      textBox3.Text = "3";
+      textBox_x.Text = "1";
+      //textBox2.Text = "2";
+      //textBox3.Text = "3";
       textBox4.Text = "Результат работы программы";
       textBox4.Text += Environment.NewLine + "Рассчитать значение выражения";
     }
@@ -45,56 +45,60 @@ namespace Forms3
 
     }
 
-
+    public double f(double x, int choise)
+    {
+      if (choise == 0) //когда выбрали sh
+        return Math.Sinh(x);
+      else
+        if (choise == 1)
+        return Math.Cosh(x);
+      else
+        //if (choise == 2)
+        return Math.Exp(x);
+    }
+    public double y(double x, int choise)
+    {
+      if (x > 10)
+        return 1;
+      else
+        if (x >= 0 && x <= 10)
+        return 2 * f(x, choise) - 1;
+      else
+        //if (x < 0)
+        return Math.Abs(1 - 3 * f(x, choise));
+    }
     //кнопка расчета вывода
     private void button1_Click(object sender, EventArgs e)
     {
-            
-      double x = double.Parse(textBox1.Text);
-      double y = double.Parse(textBox2.Text);
-      double Fx = double.Parse(textBox3.Text);
+      if (textBox_x.Text != "")
+      {
+        double x = double.Parse(textBox_x.Text);
+        //double y0 = double.Parse(textBox2.Text);
+        //double Fx = double.Parse(textBox3.Text);
 
-      
-      textBox4.Text += Environment.NewLine + "При x = " + x.ToString();
-      textBox4.Text += Environment.NewLine + "При y = " + y.ToString();
-      textBox4.Text += Environment.NewLine + "При z = " + Fx.ToString();
 
-      // Вычисляем арифметическое выражение
+        textBox4.Text += Environment.NewLine + "При x = " + x.ToString();
+        //textBox4.Text += Environment.NewLine + "При y = " + y.ToString();
+        //textBox4.Text += Environment.NewLine + "При z = " + Fx.ToString();
 
-      
-      if (x > 10) y = 1;
-      if ((x >= 0) && (x <= 10)) y = 2 * Fx - 1;
-      if (x < 0) y = Math.Abs(1 - (3*Fx));
+        // Вычисляем арифметическое выражение
 
-      //Выводимрезультатвокно
-      textBox4.Text += Environment.NewLine + "Результат Fx = " + Fx.ToString();
+        if (radioButton_sh.Checked) //choise = 0 
+          textBox4.Text += Environment.NewLine + "Результат Fx = sh(x) = " + f(x, 0) + ", y = " + y(x, 0).ToString();
+        else
+          if (radioButton_ch.Checked)
+          textBox4.Text += Environment.NewLine + "Результат Fx = ch(x) = " + f(x, 1) + ", y = " + y(x, 1).ToString();
+        else
+          if (radioButton_exp.Checked)
+          textBox4.Text += Environment.NewLine + "Результат Fx = exp(x) = " + f(x, 2) + ", y = " + y(x, 2).ToString();
+        else
+          MessageBox.Show("Выберите функцию");
+      }
+      else
+        MessageBox.Show("Введите значение x");          
 
     }
     
-
-    //кнопки sh ch exp 
-    private void radioButton1_CheckedChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    private void radioButton2_CheckedChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    private void radioButton3_CheckedChanged(object sender, EventArgs e)
-    {
-      double z = double.Parse(textBox3.Text);
-      double x = double.Parse(textBox1.Text);
-      double y = double.Parse(textBox2.Text);
-      if (radioButton1.Checked)
-      {
-        z = Math.Pow(x, 2);
-      }
-      textBox4.Text += Environment.NewLine + "Результат y = " + y.ToString();
-      
-    }
 
 
     //окно для вывода текста 
@@ -125,5 +129,19 @@ namespace Forms3
 
     }
 
+    private void radioButton_sh_CheckedChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void radioButton_ch_CheckedChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void radioButton_exp_CheckedChanged(object sender, EventArgs e)
+    {
+
+    }
   }
 }
