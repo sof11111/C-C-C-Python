@@ -21,9 +21,7 @@ namespace Forms3
     //ввод x, y, z
     private void Form1_Load(object sender, EventArgs e)
     {
-      textBox_x.Text = "1";
-      //textBox2.Text = "2";
-      //textBox3.Text = "3";
+      textBox_x.Text = "1";      
       textBox4.Text = "Результат работы программы";
       textBox4.Text += Environment.NewLine + "Рассчитать значение выражения";
     }
@@ -34,16 +32,7 @@ namespace Forms3
     {
 
     }
-
-    private void label2_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void label3_Click(object sender, EventArgs e)
-    {
-
-    }
+    
 
     public double f(double x, int choise)
     {
@@ -67,22 +56,20 @@ namespace Forms3
         //if (x < 0)
         return Math.Abs(1 - 3 * f(x, choise));
     }
+
     //кнопка расчета вывода
     private void button1_Click(object sender, EventArgs e)
     {
       if (textBox_x.Text != "")
       {
         double x = double.Parse(textBox_x.Text);
-        //double y0 = double.Parse(textBox2.Text);
-        //double Fx = double.Parse(textBox3.Text);
+        
 
 
         textBox4.Text += Environment.NewLine + "При x = " + x.ToString();
-        //textBox4.Text += Environment.NewLine + "При y = " + y.ToString();
-        //textBox4.Text += Environment.NewLine + "При z = " + Fx.ToString();
+        
 
         // Вычисляем арифметическое выражение
-
         if (radioButton_sh.Checked) //choise = 0 
           textBox4.Text += Environment.NewLine + "Результат Fx = sh(x) = " + f(x, 0) + ", y = " + y(x, 0).ToString();
         else
@@ -100,19 +87,8 @@ namespace Forms3
     }
     
 
-
     //окно для вывода текста 
     private void textBox1_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    private void textBox2_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    private void textBox3_TextChanged(object sender, EventArgs e)
     {
 
     }
@@ -129,6 +105,7 @@ namespace Forms3
 
     }
 
+    //кнопка выбора
     private void radioButton_sh_CheckedChanged(object sender, EventArgs e)
     {
 
@@ -143,5 +120,6 @@ namespace Forms3
     {
 
     }
+
   }
 }
