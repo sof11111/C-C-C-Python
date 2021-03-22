@@ -38,11 +38,21 @@ namespace formStroki
           count++;
         i++;
       }
+             
+      if (str[i] == 'а')      
+        label1.Text = "Количество буквы а = " + count.ToString();
+      
+      else
+        if (str[i] != 'а')
+          label1.Text = "Строка без а";
+        
 
-      label1.Text = "Количество буквы а = " + count.ToString();
     }
 
+    private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+    {
 
+    }
 
   }
-}
+}// + "Строка без а"

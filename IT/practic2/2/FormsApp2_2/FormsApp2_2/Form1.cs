@@ -24,12 +24,27 @@ namespace FormsApp2_2
       textBox2.Text += Environment.NewLine + "Рассчитать значение выражения";
     }
 
-    public double y(double n)
-    {
-       
-    }
 
-    public double s(double y)
+    
+
+    //факториал
+    public static long Fact(long n)
+    {
+      if (n == 0)
+        return 1;
+      else
+        return n * Fact(n - 1);
+
+      
+    }
+    public double y(long n)
+    {
+      return y = (n + 1) / (2 * Fact(n));
+    }
+    
+
+    //сумма ряда
+    public double s()
     {
       double res;
       res = y;
@@ -46,6 +61,20 @@ namespace FormsApp2_2
     }
 
     private void button1_Click(object sender, EventArgs e)
+    {
+      if (textBox1.Text != "")
+      {
+        double x = double.Parse(textBox1.Text);
+        textBox2.Text += Environment.NewLine + "При x = " + x.ToString();
+
+        
+        
+      }
+      else
+        MessageBox.Show("Введите значение x");
+    }
+
+    private void radioButton_sh(object sender, EventArgs e)
     {
 
     }
