@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace formStroki
+namespace formStroki //практика5
 {
   public partial class Form1 : Form
   {
@@ -37,14 +37,15 @@ namespace formStroki
         if (str[i] == 'а')
           count++;
         i++;
+        
       }
-             
-      if (str[i] == 'а')      
+       
+      
+            
         label1.Text = "Количество буквы а = " + count.ToString();
       
-      else
-        if (str[i] != 'а')
-          label1.Text = "Строка без а";
+      
+          //label1.Text = "Строка без а";*/
         
 
     }
