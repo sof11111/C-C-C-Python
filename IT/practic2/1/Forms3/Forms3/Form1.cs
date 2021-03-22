@@ -63,11 +63,7 @@ namespace Forms3
       if (textBox_x.Text != "")
       {
         double x = double.Parse(textBox_x.Text);
-        
-
-
-        textBox4.Text += Environment.NewLine + "При x = " + x.ToString();
-        
+        textBox4.Text += Environment.NewLine + "При x = " + x.ToString();        
 
         // Вычисляем арифметическое выражение
         if (radioButton_sh.Checked) //choise = 0 
@@ -82,8 +78,7 @@ namespace Forms3
           MessageBox.Show("Выберите функцию");
       }
       else
-        MessageBox.Show("Введите значение x");          
-
+        MessageBox.Show("Введите значение x");  
     }
     
 
