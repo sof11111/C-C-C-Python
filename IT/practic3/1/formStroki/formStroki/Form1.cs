@@ -41,12 +41,10 @@ namespace formStroki //практика5
       }
        
       
-            
-        label1.Text = "Количество буквы а = " + count.ToString();
-      
-      
-          //label1.Text = "Строка без а";*/
-        
+        if(count > 0)
+          label1.Text = "Количество буквы а = " + count.ToString();
+        else
+          label1.Text = "Строка без а";       
 
     }
 
@@ -56,4 +54,4 @@ namespace formStroki //практика5
     }
 
   }
-}// + "Строка без а"
+}

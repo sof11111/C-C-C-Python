@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//практика6
 namespace Frm
 {
   public partial class Form1 : Form
@@ -16,48 +17,41 @@ namespace Frm
     {
       InitializeComponent();
     }
-
+    //static int n = 15;
     int[] Mas = new int[15];
 
     private void button1_Click(object sender, EventArgs e)
     {
       Random rand = new Random();
       textBox1.Text = "";
-      for (int i = 0; i < 15; i++)
+      for (int i = 0; i < Mas.Length; i++)
       {
         Mas[i] = rand.Next(-50, 50);
-
 
         textBox1.Text += "Mas[" + Convert.ToString(i) + "] = " + Convert.ToString(Mas[i]) + Environment.NewLine;
       }
     }
 
-    private void button2_Click(object sender, EventArgs e)
+    
+    private void button2_Click_1(object sender, EventArgs e)
     {
       textBox2.Text = "";
 
-      int n = 0, m = 0;
-      for (int i = 0; i < 15; i++)
+      long counter = 1;
+      for (int i = 0; i < Mas.Length; i++)
       {
-        
-        if (Mas[i] == 0)        
-          n++;       
-          
-        if (Mas[i] < 0)        
-          m++;
-
-
-
-
-        //textBox2.Text += "Mas[" + Convert.ToString(i) + "] = " + Convert.ToString(Mas[i]) + Environment.NewLine;
-        //textBox2.Text += "Mas[" + Convert.ToString(i) + "] = " + Environment.NewLine;
-        textBox2.Text += "Mas[" + Convert.ToString(i) + "] = " + Convert.ToString(Mas[i]) + Environment.NewLine;
+        if (i % 2 == 0) //0 считается четным 
+          counter *= Mas[i];
       }
-      
-
+      textBox2.Text = counter + "";
     }
 
     private void textBox2_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void Form1_Load(object sender, EventArgs e)
     {
 
     }
