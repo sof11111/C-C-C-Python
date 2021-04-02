@@ -16,8 +16,6 @@ namespace formStroki //практика5
     {
       InitializeComponent();
     }
-
-
     private void button1_Click(object sender, EventArgs e)
     {
       // Получаем номер выделенной строки
@@ -38,14 +36,11 @@ namespace formStroki //практика5
           count++;
         i++;
         
-      }
-       
-      
+      }      
         if(count > 0)
           label1.Text = "Количество буквы а = " + count.ToString();
         else
-          label1.Text = "Строка без а";       
-
+          label1.Text = "Строка без а";
     }
 
     private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
