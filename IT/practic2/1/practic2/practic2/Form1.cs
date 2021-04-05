@@ -36,8 +36,6 @@ namespace practic2
 
       // Выводим результат в окно
       textBox2.Text += Environment.NewLine + "Результат y = " + y.ToString();
-    }
-    
-
+    } 
   }
 }
