@@ -48,5 +48,9 @@ namespace formStroki //практика5
 
     }
 
-  }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

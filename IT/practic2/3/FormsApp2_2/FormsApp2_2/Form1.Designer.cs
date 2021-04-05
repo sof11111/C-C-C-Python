@@ -53,7 +53,7 @@ namespace FormsApp2_2
       // textBox1
       // 
       this.textBox1.Location = new System.Drawing.Point(109, 78);
-      this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBox1.Margin = new System.Windows.Forms.Padding(2);
       this.textBox1.Name = "textBox1";
       this.textBox1.Size = new System.Drawing.Size(76, 20);
       this.textBox1.TabIndex = 1;
@@ -61,7 +61,7 @@ namespace FormsApp2_2
       // textBox2
       // 
       this.textBox2.Location = new System.Drawing.Point(41, 118);
-      this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBox2.Margin = new System.Windows.Forms.Padding(2);
       this.textBox2.Multiline = true;
       this.textBox2.Name = "textBox2";
       this.textBox2.Size = new System.Drawing.Size(260, 186);
@@ -72,7 +72,7 @@ namespace FormsApp2_2
       // 
       this.radioButton1.AutoSize = true;
       this.radioButton1.Location = new System.Drawing.Point(4, 24);
-      this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
       this.radioButton1.Name = "radioButton1";
       this.radioButton1.Size = new System.Drawing.Size(86, 17);
       this.radioButton1.TabIndex = 3;
@@ -86,9 +86,9 @@ namespace FormsApp2_2
       this.groupBox1.Controls.Add(this.radioButton2);
       this.groupBox1.Controls.Add(this.radioButton1);
       this.groupBox1.Location = new System.Drawing.Point(323, 78);
-      this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
       this.groupBox1.Name = "groupBox1";
-      this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
       this.groupBox1.Size = new System.Drawing.Size(131, 81);
       this.groupBox1.TabIndex = 4;
       this.groupBox1.TabStop = false;
@@ -98,7 +98,7 @@ namespace FormsApp2_2
       // 
       this.radioButton2.AutoSize = true;
       this.radioButton2.Location = new System.Drawing.Point(4, 46);
-      this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
       this.radioButton2.Name = "radioButton2";
       this.radioButton2.Size = new System.Drawing.Size(126, 17);
       this.radioButton2.TabIndex = 4;
@@ -109,7 +109,7 @@ namespace FormsApp2_2
       // button1
       // 
       this.button1.Location = new System.Drawing.Point(352, 306);
-      this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.button1.Margin = new System.Windows.Forms.Padding(2);
       this.button1.Name = "button1";
       this.button1.Size = new System.Drawing.Size(56, 27);
       this.button1.TabIndex = 5;
@@ -127,9 +127,10 @@ namespace FormsApp2_2
       this.Controls.Add(this.textBox2);
       this.Controls.Add(this.textBox1);
       this.Controls.Add(this.label1);
-      this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.Margin = new System.Windows.Forms.Padding(2);
       this.Name = "Form1";
       this.Text = "Алгоритм с использованием циклов";
+      this.Load += new System.EventHandler(this.Form1_Load_1);
       this.groupBox1.ResumeLayout(false);
       this.groupBox1.PerformLayout();
       this.ResumeLayout(false);
