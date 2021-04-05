@@ -121,9 +121,6 @@ namespace practic8 //primer
         // Добавляем вычисленные значения в графики
         chart.Series[0].Points.DataBindXY(x, y1);
         chart.Series[1].Points.DataBindXY(x, y2);
-      }
-
-
-   
+      }   
     }
 }
