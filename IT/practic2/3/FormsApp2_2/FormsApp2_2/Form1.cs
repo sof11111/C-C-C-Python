@@ -27,7 +27,7 @@ namespace FormsApp2_2 //практика4
 
     
 
-      //факториал
+      
       public static long Fact(long n)
       {
         if (n == 0)
@@ -42,7 +42,7 @@ namespace FormsApp2_2 //практика4
       }
     
 
-      //сумма ряда
+      
       public double s()
       {
         double res;
