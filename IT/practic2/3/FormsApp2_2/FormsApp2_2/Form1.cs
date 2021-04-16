@@ -23,11 +23,7 @@ namespace FormsApp2_2 //практика4
         textBox2.Text = "Результат работы программы";
         textBox2.Text += Environment.NewLine + "Рассчитать значение выражения";
       }
-
-
     
-
-      
       public static long Fact(long n)
       {
         if (n == 0)
@@ -38,15 +34,16 @@ namespace FormsApp2_2 //практика4
 
       public double y(long n)
       {
-        return y = (n + 1) / (2 * Fact(n));
-      }
+        return Math.Sqrt(n + 2) / (1 + Math.Sqrt(Fact(n + 1)));
+      }   
     
-
-      
-      public double s()
+      public double sum(long n)
       {
-        double res;
-        res = y;
+        double res = 0;
+        for(int i = 5; i <= n; i++)
+        {
+          res += y(n);
+        }
         return res;
       }
 
@@ -63,11 +60,14 @@ namespace FormsApp2_2 //практика4
       {
         if (textBox1.Text != "")
         {
-          double x = double.Parse(textBox1.Text);
-          textBox2.Text += Environment.NewLine + "При x = " + x.ToString();        
+          long x = long.Parse(textBox1.Text);
+          textBox2.Text += Environment.NewLine + "При x = " + x.ToString();
+        textBox2.Text += Environment.NewLine + sum(x);
         }
         else
           MessageBox.Show("Введите значение x");
+
+
       }
 
       private void radioButton_sh(object sender, EventArgs e)
