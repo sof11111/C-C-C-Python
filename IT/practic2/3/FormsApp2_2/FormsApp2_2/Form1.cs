@@ -23,7 +23,8 @@ namespace FormsApp2_2 //практика4
         textBox2.Text = "Результат работы программы";
         textBox2.Text += Environment.NewLine + "Рассчитать значение выражения";
       }
-    
+
+      //факториал
       public static long Fact(long n)
       {
         if (n == 0)
@@ -31,12 +32,14 @@ namespace FormsApp2_2 //практика4
         else
           return n * Fact(n - 1);      
       }
-
+      
+      //уравнение
       public double y(long n)
       {
         return Math.Sqrt(n + 2) / (1 + Math.Sqrt(Fact(n + 1)));
       }   
-    
+      
+      //сумма ряда
       public double sum(long n)
       {
         double res = 0;
@@ -45,6 +48,19 @@ namespace FormsApp2_2 //практика4
           res += y(n);
         }
         return res;
+      }
+      
+      //расчет
+      private void button1_Click(object sender, EventArgs e)
+      {
+        if (textBox1.Text != "")
+        {
+          long x = long.Parse(textBox1.Text);
+          textBox2.Text += Environment.NewLine + "При x = " + x.ToString();
+          textBox2.Text += Environment.NewLine + sum(x);
+        }
+        else
+          MessageBox.Show("Введите значение x");
       }
 
       private void label1_Click(object sender, EventArgs e)
@@ -55,29 +71,9 @@ namespace FormsApp2_2 //практика4
       {
 
       }
-
-      private void button1_Click(object sender, EventArgs e)
-      {
-        if (textBox1.Text != "")
-        {
-          long x = long.Parse(textBox1.Text);
-          textBox2.Text += Environment.NewLine + "При x = " + x.ToString();
-        textBox2.Text += Environment.NewLine + sum(x);
-        }
-        else
-          MessageBox.Show("Введите значение x");
-
-
-      }
-
-      private void radioButton_sh(object sender, EventArgs e)
-      {
-
-      }
       private void Form1_Load_1(object sender, EventArgs e)
       {
 
       }
-    
    }
 }
