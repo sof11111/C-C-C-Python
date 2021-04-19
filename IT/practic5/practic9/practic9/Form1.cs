@@ -50,19 +50,12 @@ namespace practic9
       //закрашенный квадрат
       SolidBrush blueBrush = new SolidBrush(Color.Green);
       Rectangle rect = new Rectangle(300, 1, 100, 100);
-      g.FillRectangle(blueBrush, rect);
-
-      
-    }
-
-    
-
+      g.FillRectangle(blueBrush, rect);      
+    } 
 
     private void Form1_Load_1(object sender, EventArgs e)
     {
       
     }
-
-
   }
 }
