@@ -16,7 +16,7 @@ namespace practic9
     {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new proramma());
+      Application.Run(new Form1());
     }
   }
 }

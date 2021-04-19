@@ -30,7 +30,7 @@ namespace practic8
       int count = (int)Math.Ceiling((XMax - XMin) / Step) + 1;
       
       x = new double[count];
-      y1 = new double[count];      
+      y1 = new double[count];
       
       for (int i = 0; i < count; i++)
       {        
