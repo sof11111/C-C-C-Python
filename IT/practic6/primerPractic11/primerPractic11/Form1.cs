@@ -49,7 +49,8 @@ namespace primerPractic11
     }
 
     private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
-    { // обработчик события нажатия кнопки на мыши
+    { 
+      // обработчик события нажатия кнопки на мыши
       // записываем в предыдущую точку (PreviousPoint) текущие координаты
       PreviousPoint.X = e.X;
       PreviousPoint.Y = e.Y;
@@ -71,7 +72,7 @@ namespace primerPractic11
           PreviousPoint.X = point.X;
           PreviousPoint.Y = point.Y;
           pictureBox1.Invalidate();//Принудительновызываемпереррисовку pictureBox1
-          pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+          //pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
       }
@@ -126,7 +127,7 @@ namespace primerPractic11
 
     private void pictureBox1_Click(object sender, EventArgs e)
     {
-
+      
     }
 
     private void button3_Click(object sender, EventArgs e)
