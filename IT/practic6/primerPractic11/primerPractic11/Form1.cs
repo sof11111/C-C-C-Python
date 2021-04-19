@@ -39,6 +39,7 @@ namespace primerPractic11
         pictureBox1.Width = width;
         pictureBox1.Height = height;
 
+        
         bmp = new Bitmap(image, width, height); //создаемизагружаемиз image изображениевформате bmp
 
         pictureBox1.Image = bmp; //записываем изображение в формате bmp в pictureBox1
@@ -55,19 +56,24 @@ namespace primerPractic11
     }
 
     private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
-    {//Обработчик события перемещения мыши по pictuteBox1
-      if (e.Button == MouseButtons.Left) //Проверяем нажата ли левая кнопка мыши
-      {  //запоминаем в point текущее положение курсора мыши
-        point.X = e.X;
-        point.Y = e.Y;
+    {
+      {
+        //Обработчик события перемещения мыши по pictuteBox1
+        if (e.Button == MouseButtons.Left) //Проверяем нажата ли левая кнопка мыши
+        {  //запоминаем в point текущее положение курсора мыши
+          point.X = e.X;
+          point.Y = e.Y;
 
-        //соеденяем линией предыдущую точку с текущей
-        g.DrawLine(blackPen, PreviousPoint, point);
+          //соеденяем линией предыдущую точку с текущей
+          g.DrawLine(blackPen, PreviousPoint, point);
 
-        //текущее положение курсора мыши сохраняем в PreviousPoint
-        PreviousPoint.X = point.X;
-        PreviousPoint.Y = point.Y;
-        pictureBox1.Invalidate();//Принудительновызываемпереррисовку pictureBox1
+          //текущее положение курсора мыши сохраняем в PreviousPoint
+          PreviousPoint.X = point.X;
+          PreviousPoint.Y = point.Y;
+          pictureBox1.Invalidate();//Принудительновызываемпереррисовку pictureBox1
+          pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
       }
     }
 
@@ -116,8 +122,14 @@ namespace primerPractic11
             break;
         }
       }
-    }    
+    }
 
+    private void pictureBox1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+   
     private void Form1_Load(object sender, EventArgs e)
     {
       blackPen = new Pen(Color.Black, 4); //подготавливаем перо для рисования
