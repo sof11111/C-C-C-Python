@@ -129,7 +129,23 @@ namespace primerPractic11
 
     }
 
-   
+    private void button3_Click(object sender, EventArgs e)
+    {
+      //циклы для перебора всех пикселей на изображении
+      for (int i = 0; i < bmp.Width; i++)
+        for (int j = 0; j < bmp.Height; j++)
+        {
+          int R = bmp.GetPixel(i, j).R; //извлекаем в R значение красного цвета в текущей точке
+          int G = bmp.GetPixel(i, j).G; //извлекаем в G значение зеленого цвета в текущей точке
+          int B = bmp.GetPixel(i, j).B; //извлекаем в B значение синего цвета в текущей точке
+          int Gray = (R = G + B) / 3; // высчитываем среденее арифметическое трех каналов
+          Color p = Color.FromArgb(255, Gray, Gray, Gray); //переводим int в значение цвета. 255 - показывает степень прозрачности. остальные значения одинаковы для трех каналов R,G,B
+          bmp.SetPixel(i, j, p); //записываме полученный цвет в текущую точку
+        }
+      Refresh(); //вызываем функцию перерисовки окна
+
+    }
+
     private void Form1_Load(object sender, EventArgs e)
     {
       blackPen = new Pen(Color.Black, 4); //подготавливаем перо для рисования
