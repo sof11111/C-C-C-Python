@@ -11,9 +11,8 @@ using System.Windows.Forms;
 namespace practic11
 {
   public partial class Form1 : Form
-  {
-    //Объявляем переменные доступные в каждом обработчике события
-    private Point PreviousPoint, point; //Точка до перемещения курсора мыши и текущая точка
+  {    
+    private Point PreviousPoint, point;
     private Bitmap bmp;
     private Pen blackPen;
     private Graphics g;
@@ -28,34 +27,32 @@ namespace practic11
     }
 
     private void button1_Click(object sender, EventArgs e)
-    {
-      //открытиефайла
-      OpenFileDialog dialog = new OpenFileDialog(); //описываемипорождаемобъект dialog классаOpenFileDialog
-                                                    //задаемрасширенияфайлов
+    {      
+      OpenFileDialog dialog = new OpenFileDialog(); 
+                                                    
       dialog.Filter = "Image files (*.BMP, *.JPG, *.GIF, *.TIF, *.PNG, *.ICO, *.EMF, *.WMF)|*.bmp;*.jpg;*.gif; *.tif; *.png; *.ico; *.emf; *.wmf";
 
-      if (dialog.ShowDialog() == DialogResult.OK)//вызываем диалоговое окно и проверяем выбран ли файл
+      if (dialog.ShowDialog() == DialogResult.OK)
       {
-        Image image = Image.FromFile(dialog.FileName); //Загружаем в image изображение из выбранного файла
+        Image image = Image.FromFile(dialog.FileName); 
         int width = image.Width;
         int height = image.Height;
         pictureBox1.Width = width;
         pictureBox1.Height = height;
 
 
-        bmp = new Bitmap(image, width, height); //создаемизагружаемиз image изображениевформате bmp
+        bmp = new Bitmap(image, width, height); 
 
-        pictureBox1.Image = bmp; //записываем изображение в формате bmp в pictureBox1
-        g = Graphics.FromImage(pictureBox1.Image); //подготавливаем объект Graphics для рисования в pictureBox1
+        pictureBox1.Image = bmp;
+        g = Graphics.FromImage(pictureBox1.Image);
 
       }
     }
 
     private void button2_Click(object sender, EventArgs e)
-    {
-      //сохранениефайла
-      SaveFileDialog savedialog = new SaveFileDialog();//описываемипорождаемобъектsavedialog
-                                                       //задаем свойства для savedialog
+    {      
+      SaveFileDialog savedialog = new SaveFileDialog();
+                                                       
       savedialog.Title = "Сохранить картинку как ...";
       savedialog.OverwritePrompt = true;
       savedialog.CheckPathExists = true;
@@ -66,15 +63,14 @@ namespace practic11
       "TIF File(*.tif)|*.tif|" +
       "PNG File(*.png)|*.png";
       savedialog.ShowHelp = true;
-      // If selected, save
-      if (savedialog.ShowDialog() == DialogResult.OK)//вызываемдиалоговоеокноипроверяемзаданолиимяфайла
-      {
-        // в строку fileName записываем указанный в savedialog полный путь к файлу
+      
+      if (savedialog.ShowDialog() == DialogResult.OK)
+      {        
         string fileName = savedialog.FileName;
-        // Убираем из имени три последних символа (расширение файла)
+        
         string strFilExtn =
         fileName.Remove(0, fileName.Length - 3);
-        // Сохраняем файл в нужном формате и с нужным расширением
+        
         switch (strFilExtn)
         {
           case "bmp":
@@ -100,55 +96,46 @@ namespace practic11
 
     private void button3_Click(object sender, EventArgs e)
     {
-      //циклы для перебора всех пикселей на изображении
+      
       for (int i = 0; i < bmp.Width; i++)
         for (int j = 0; j < bmp.Height; j++)
         {
-          int R = bmp.GetPixel(i, j).R; //извлекаем в R значение красного цвета в текущей точке
-          int G = bmp.GetPixel(i, j).G; //извлекаем в G значение зеленого цвета в текущей точке
-          int B = bmp.GetPixel(i, j).B; //извлекаем в B значение синего цвета в текущей точке
-          int Gray = (R = G + B) / 3; // высчитываем среденее арифметическое трех каналов
-          Color p = Color.FromArgb(255, Gray, Gray, Gray); //переводим int в значение цвета. 255 - показывает степень прозрачности. остальные значения одинаковы для трех каналов R,G,B
-          bmp.SetPixel(i, j, p); //записываме полученный цвет в текущую точку
+          int R = bmp.GetPixel(i, j).R; 
+          int G = bmp.GetPixel(i, j).G;
+          int B = bmp.GetPixel(i, j).B;
+          int Gray = (R = G + B) / 3; 
+          Color p = Color.FromArgb(255, Gray, Gray, Gray);
+          bmp.SetPixel(i, j, p);
         }
-      Refresh(); //вызываем функцию перерисовки окна
+      Refresh(); 
     }
 
     private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
-    {
-      // обработчик события нажатия кнопки на мыши
-      // записываем в предыдущую точку (PreviousPoint) текущие координаты
+    {      
       PreviousPoint.X = e.X;
       PreviousPoint.Y = e.Y;
     }
 
     private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
     {
-      {
-        //Обработчик события перемещения мыши по pictuteBox1
-        if (e.Button == MouseButtons.Left) //Проверяем нажата ли левая кнопка мыши
-        {  //запоминаем в point текущее положение курсора мыши
+      {        
+        if (e.Button == MouseButtons.Left)
+        { 
           point.X = e.X;
           point.Y = e.Y;
-
-          //соеденяем линией предыдущую точку с текущей
+          
           g.DrawLine(blackPen, PreviousPoint, point);
-
-          //текущее положение курсора мыши сохраняем в PreviousPoint
+          
           PreviousPoint.X = point.X;
           PreviousPoint.Y = point.Y;
-          pictureBox1.Invalidate();//Принудительновызываемпереррисовку pictureBox1
-          //pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+          pictureBox1.Invalidate();
         }
-
       }
     }
 
     private void Form1_Load(object sender, EventArgs e)
     {
-      blackPen = new Pen(Color.Black, 4); //подготавливаем перо для рисования
+      blackPen = new Pen(Color.Black, 4);
     }
-
-  }
-    
+  }    
 }
