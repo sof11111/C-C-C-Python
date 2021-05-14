@@ -14,12 +14,14 @@ namespace practic11
   {    
     private Point PreviousPoint, point;
     private Bitmap bmp;
-    private Pen blackPen;
+    private Pen curonpen;
     private Graphics g;
     public Form1()
     {
       InitializeComponent();
     }
+    Color penColor;
+    int penWidth;
 
     private void pictureBox1_Click(object sender, EventArgs e)
     {
@@ -28,20 +30,23 @@ namespace practic11
 
     private void button1_Click(object sender, EventArgs e)
     {      
-      OpenFileDialog dialog = new OpenFileDialog(); 
-                                                    
+      OpenFileDialog dialog = new OpenFileDialog();
+      pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+
       dialog.Filter = "Image files (*.BMP, *.JPG, *.GIF, *.TIF, *.PNG, *.ICO, *.EMF, *.WMF)|*.bmp;*.jpg;*.gif; *.tif; *.png; *.ico; *.emf; *.wmf";
 
       if (dialog.ShowDialog() == DialogResult.OK)
       {
-        Image image = Image.FromFile(dialog.FileName); 
-        int width = image.Width;
+        Image image = Image.FromFile(dialog.FileName);
+        /*int width = image.Width;
         int height = image.Height;
         pictureBox1.Width = width;
-        pictureBox1.Height = height;
+        pictureBox1.Height = height;*/
+        //int width = pictureBox1.Width;
+        //int height = pictureBox1.Height;
 
 
-        bmp = new Bitmap(image, width, height); 
+        bmp = new Bitmap(image, pictureBox1.Width, pictureBox1.Height); 
 
         pictureBox1.Image = bmp;
         g = Graphics.FromImage(pictureBox1.Image);
@@ -104,8 +109,8 @@ namespace practic11
           int G = bmp.GetPixel(i, j).G;
           int B = bmp.GetPixel(i, j).B;
           int Gray = (R = G + B) / 3; 
-          Color p = Color.FromArgb(255, Gray, Gray, Gray);
-          bmp.SetPixel(i, j, p);
+          penColor = Color.FromArgb(255, Gray, Gray, Gray);
+          bmp.SetPixel(i, j, penColor);
         }
       Refresh(); 
     }
@@ -124,7 +129,7 @@ namespace practic11
           point.X = e.X;
           point.Y = e.Y;
           
-          g.DrawLine(blackPen, PreviousPoint, point);
+          g.DrawLine(curonpen, PreviousPoint, point);
           
           PreviousPoint.X = point.X;
           PreviousPoint.Y = point.Y;
@@ -133,9 +138,29 @@ namespace practic11
       }
     }
 
+    private void button_Color_Click(object sender, EventArgs e)
+    {
+      if (colorDialog1.ShowDialog() == DialogResult.OK)
+      {
+        curonpen.Color = colorDialog1.Color;
+        button_Color.BackColor = colorDialog1.Color;
+      }
+    }
+
+    private void trackBar_penWidth_Scroll(object sender, EventArgs e)
+    {
+      penWidth = trackBar_penWidth.Value;
+      curonpen.Width = penWidth;
+      label_curValue.Text = trackBar_penWidth.Value + "";
+    }
+
     private void Form1_Load(object sender, EventArgs e)
     {
-      blackPen = new Pen(Color.Black, 4);
+      curonpen = new Pen(Color.Black, 4);
+      label_0.Text = trackBar_penWidth.Minimum + "";
+      label_50.Text = trackBar_penWidth.Maximum + "";
+      trackBar_penWidth.Value = 4;
+      label_curValue.Text = trackBar_penWidth.Value + "";
     }
   }    
 }
