@@ -38,19 +38,11 @@ namespace practic11
       if (dialog.ShowDialog() == DialogResult.OK)
       {
         Image image = Image.FromFile(dialog.FileName);
-        /*int width = image.Width;
-        int height = image.Height;
-        pictureBox1.Width = width;
-        pictureBox1.Height = height;*/
-        //int width = pictureBox1.Width;
-        //int height = pictureBox1.Height;
-
-
+        
         bmp = new Bitmap(image, pictureBox1.Width, pictureBox1.Height); 
 
         pictureBox1.Image = bmp;
         g = Graphics.FromImage(pictureBox1.Image);
-
       }
     }
 
@@ -122,8 +114,7 @@ namespace practic11
     }
 
     private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
-    {
-      {        
+    {            
         if (e.Button == MouseButtons.Left)
         { 
           point.X = e.X;
@@ -134,8 +125,7 @@ namespace practic11
           PreviousPoint.X = point.X;
           PreviousPoint.Y = point.Y;
           pictureBox1.Invalidate();
-        }
-      }
+        }     
     }
 
     private void button_Color_Click(object sender, EventArgs e)
