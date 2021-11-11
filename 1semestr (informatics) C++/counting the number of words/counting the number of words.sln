@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "counting the number of words", "counting the number of words\counting the number of words.vcxproj", "{7FB1A64B-F450-418A-81AD-C7671B4A7D62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FB1A64B-F450-418A-81AD-C7671B4A7D62}.Debug|x64.ActiveCfg = Debug|x64
+		{7FB1A64B-F450-418A-81AD-C7671B4A7D62}.Debug|x64.Build.0 = Debug|x64
+		{7FB1A64B-F450-418A-81AD-C7671B4A7D62}.Debug|x86.ActiveCfg = Debug|Win32
+		{7FB1A64B-F450-418A-81AD-C7671B4A7D62}.Debug|x86.Build.0 = Debug|Win32
+		{7FB1A64B-F450-418A-81AD-C7671B4A7D62}.Release|x64.ActiveCfg = Release|x64
+		{7FB1A64B-F450-418A-81AD-C7671B4A7D62}.Release|x64.Build.0 = Release|x64
+		{7FB1A64B-F450-418A-81AD-C7671B4A7D62}.Release|x86.ActiveCfg = Release|Win32
+		{7FB1A64B-F450-418A-81AD-C7671B4A7D62}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91206F3D-5E64-4C62-AD1C-89659DF01DFD}
+	EndGlobalSection
+EndGlobal
