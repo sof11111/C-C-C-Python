@@ -1,4 +1,5 @@
 ﻿using System;
+//проверка
 
 namespace prt01
 {
